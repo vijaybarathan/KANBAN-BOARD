@@ -1,0 +1,31 @@
+<mat-card>
+    <form #editBoardForm="ngForm" id="form" (ngSubmit)="onSubmit(editBoardForm)">
+        <h2>Edit Board</h2>
+        <mat-form-field appearance="fill" style="margin-top: 4%;">
+            <mat-label>Board Name</mat-label>
+            <input matInput name="boardName" [(ngModel)]="boardForm.boardName" required placeholder="Board Name">
+        </mat-form-field>
+        <br>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Description</mat-label>
+            <textarea matInput name="boardDescription" [(ngModel)]="boardForm.boardDescription" required
+                placeholder="Description"></textarea>
+        </mat-form-field>
+        <br>
+
+        <!-- <mat-form-field>
+            <mat-label>Add Board Members</mat-label>
+            <mat-select name="boardMembers" [(ngModel)]="boardForm.boardMembers" multiple>
+                <mat-option  *ngFor="let e of email" [value]="e">{{e}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br> -->
+
+        <div style="display: flex;justify-content: space-between;margin-left: 40px;margin-right: 30px;">
+            <button  mat-raised-button color="primary" (click)="close()">Back</button>
+            <button id="button" mat-raised-button color="primary" type="submit">Update Board</button>
+        </div>
+
+    </form>
+</mat-card>

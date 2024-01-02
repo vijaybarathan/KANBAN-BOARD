@@ -1,0 +1,17 @@
+<mat-sidenav-container color="primary" class="sidenav-container">
+    <mat-sidenav-content>
+
+    <mat-toolbar color="primary" style="display: flex; justify-content: space-between;">
+      
+      <img src="../../assets/kanban-tool-logo-5d881ef6916e54ea554f031f90aa2e6202e6a81188fc8449b277b2097f2b6ebb.png"
+        alt="" [height]="30">
+        <div>
+          <button mat-raised-button style="background-color: moccasin;border-radius: 20px;border: 1px solid black;" routerLink="/login">Login</button>
+          <button mat-raised-button style="background-color: moccasin;border-radius: 20px;margin-left: 10px;border: 1px solid black;" routerLink="/register">Sign Up</button>
+        </div>
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,31 @@
+<div style="position: fixed;top: 0;z-index: 2;">
+    <app-navigation-home></app-navigation-home>
+</div>
+<div id="layout">
+    <div id="div" *ngIf="showBoard">
+        <h2 style="text-align: center;text-decoration: underline;">{{userName}}'s Board List</h2>
+        <div *ngFor="let board of boardList">
+            <mat-card>
+                <div id="delete">
+                    <div>
+                        <mat-card-header title="Click to View Board" id="boardName"
+                            (click)="viewBoard(board.boardId)">{{board.boardName}}</mat-card-header>
+                    </div>
+                    <div>
+                        <button mat-icon-button (click)="editBoard(board.boardId)" title="edit"
+                            style="float: left;cursor: pointer; "><mat-icon>create</mat-icon></button>
+                        <button mat-icon-button id="delete" style="cursor: pointer;"
+                            (click)="deleteBoard(board.boardId)"><mat-icon title="delete">delete</mat-icon></button>
+                    </div>
+                </div>
+                <div id="sub">
+                    <mat-card-subtitle id="subtitle1">{{board.boardDescription}}</mat-card-subtitle>
+                    <mat-card-subtitle id="subtitle2">Created on: {{board.boardCreatedOn}}</mat-card-subtitle>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+    <div id="button">
+        <button mat-raised-button (click)="createboard()">Create New Board</button>
+    </div>
+</div>

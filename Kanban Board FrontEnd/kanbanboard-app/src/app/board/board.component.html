@@ -1,0 +1,93 @@
+<div style="position: fixed;top: 0;z-index: 1;">
+    <app-navigation-board></app-navigation-board>
+</div>
+<div id="box">
+    <div style="display: flex;justify-content: center;">
+        <div>
+            <h1>{{Board.boardName}} </h1>
+        </div>&nbsp;&nbsp;&nbsp;
+        <div id="boardcust">
+            <button title="edit board" mat-icon-button (click)="editBoard(Board.boardId)"><mat-icon
+                    style="color: rgb(26, 70, 107);">edit</mat-icon></button>
+            <button title="delete board" (click)="deleteBoard(Board.boardId)" mat-icon-button
+                style="color: rgb(199, 13, 13);"><mat-icon>delete</mat-icon></button>
+        </div><br>
+        <div id="colorp">
+            <p id="para">Task Priority </p><mat-icon
+                style="margin-top: 17px;margin-left: 10px;color: white;">arrow_circle_right</mat-icon>
+            <p id="colorp1">&nbsp;</p>
+            <p class="para1">- Low</p>
+            <p id="colorp2">&nbsp;</p>
+            <p class="para1">- Medium</p>
+            <p id="colorp3">&nbsp;</p>
+            <p class="para1">- High</p>
+        </div>
+    </div>
+    <div id="container">
+        <div cdkDropListGroup id="stage">
+            <div id="card" *ngFor="let Stage of Board.kanbanStageList" cdkDropList
+                [cdkDropListData]="Stage.kanbanTaskList" (cdkDropListDropped)="onTaskDrop($event, Stage.stageId)"
+                style="overflow: auto;">
+                <div>
+                    <div id="head">
+                        <div>
+                            <mat-card-header id={{Stage.stageId}}>{{Stage.stageName}}</mat-card-header>
+                        </div>
+                        <div><button style="margin-top: 3.5px;margin-left: -15px;" title="Add Task"
+                                (click)="addTask(Stage.stageId)" mat-icon-button><mat-icon title="Add Task"
+                                    id="button">add</mat-icon></button>
+                        </div>
+                    </div>
+                </div>
+                <div *ngFor="let task of Stage.kanbanTaskList" cdkDrag [cdkDragData]="task">
+                    <div style="margin-bottom: 10px;">
+                        <mat-card id="task"
+                            [ngStyle]="{'background-color': task.taskPriority=='LOW'? 'rgb(128, 172, 79)' :  task.taskPriority=='HIGH'? 'rgb(187, 63, 63)' :'rgb(206, 206, 62)'}">
+                            <h2 style="font-weight: bolder;">{{task.taskTitle}}</h2>
+
+                            <mat-card>
+                                <p id="p">Description :</p>
+                                <p class="p" style="word-wrap: break-word;">{{task.taskDescription}}</p>
+                            </mat-card>
+                            <mat-card>
+                                <p class="p">Start Date :&nbsp;{{task.startDate.substring(0,10)}}</p>
+                            </mat-card>
+                            <mat-card>
+                                <p class="p">Due Date &nbsp;:&nbsp;{{task.taskDeadline.substring(0,10)}}</p>
+                            </mat-card>
+                            <mat-card id="assign">
+                                <mat-icon id="icon">person</mat-icon>
+                                <p class="p">{{task.taskAssignee}}</p>
+                            </mat-card>
+
+                            <div id="buttons">
+                                <div>
+                                    <button mat-icon-button [matMenuTriggerFor]="menu">
+                                        <mat-icon class="icon">more_vert</mat-icon>
+                                    </button>
+                                    <mat-menu #menu="matMenu">
+                                        <div *ngFor="let stage of  Board.kanbanStageList">
+                                            <button mat-menu-item *ngIf="Stage.stageName!=stage.stageName"
+                                                (click)="moveTask(task,stage.stageId)">
+                                                <span>Move to {{stage.stageName}}</span>
+                                            </button>
+                                        </div>
+                                    </mat-menu>
+                                </div>
+                                <div>
+                                    <button mat-icon-button (click)="editTask(task.taskId,Stage.stageId)"><mat-icon
+                                            class="icon" style="color: rgb(0, 140, 255);">edit</mat-icon></button>
+                                </div>
+                                <div>
+                                    <button mat-icon-button (click)="deleteTask(task.taskId,Stage.stageId)"><mat-icon
+                                            title="Delete Task" class="icon"
+                                            style="color: red;">delete</mat-icon></button>
+                                </div>
+                            </div>
+                        </mat-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

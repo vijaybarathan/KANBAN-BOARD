@@ -1,0 +1,86 @@
+<div style="position: fixed;top: 0;z-index: 2;">
+    <app-navigation-board></app-navigation-board>
+</div>
+<div>
+    <mat-stepper #stepper>
+        <mat-step [stepControl]="firstFormGroup" errorMessage="Board Details are required">
+            <mat-card id="card1">
+                <form [formGroup]="firstFormGroup">
+                    <ng-template matStepLabel>Fill out your board details</ng-template>
+                    <mat-form-field>
+                        <mat-label>New BoardName</mat-label>
+                        <input matInput placeholder="Enter board Name" formControlName="boardName" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Description</mat-label>
+                        <input matInput placeholder="Enter board description" formControlName="boardDescription"
+                            required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Add Board Members</mat-label>
+                        <mat-select formControlName="boardMembers" multiple>
+                            <mat-option [value]=member *ngFor="let member of email">{{member}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div>
+                        <button [disabled]="!firstFormGroup.valid" mat-button matStepperNext>Next</button>
+                    </div>
+                </form>
+            </mat-card>
+
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup" label="Stages of your workflow" errorMessage="Stages are required">
+            <mat-card id="card2">
+                <form [formGroup]="secondFormGroup">
+                    <mat-form-field id="formfield">
+                        <mat-label>Enter Number of Stages</mat-label>
+                        <mat-select (selectionChange)="addBoxes($event)">
+                            <mat-option [value]="3">3</mat-option>
+                            <mat-option [value]="4">4</mat-option>
+                            <mat-option [value]="5">5</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Stage Name 1</mat-label>
+                        <input matInput placeholder="Enter Stage Name 1" formControlName="stageName1" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Stage Name 2</mat-label>
+                        <input matInput placeholder="Enter Stage Name 2" formControlName="stageName2" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Stage Name 3</mat-label>
+                        <input matInput placeholder="Enter Stage Name 3" formControlName="stageName3" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Stage Name 4</mat-label>
+                        <input matInput placeholder="Enter Stage Name 4" formControlName="stageName4" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Stage Name 5</mat-label>
+                        <input matInput placeholder="Enter Stage Name 5" formControlName="stageName5" required>
+                    </mat-form-field>
+                    <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button style="margin-left: 20px;" mat-button [disabled]="!secondFormGroup.valid"
+                            matStepperNext>Next</button>
+                    </div>
+                </form>
+            </mat-card>
+        </mat-step>
+        <mat-step label="Done">
+            <div id="button">
+                <mat-card id="card3">
+                    <p>Save Board ?</p>
+                    <button
+                        style="padding: 10px; margin-left: 42%;background-color: moccasin;width: 80px;margin-bottom: 5px;border:1px solid black;"
+                        mat-raised-button (click)="add()">Done</button>
+                </mat-card>
+                <div style="margin-left: 35%;">
+                    <button style="margin: 10px;border:1px solid black;" mat-button matStepperPrevious>Back</button>
+                    <button style="margin: 10px;border:1px solid black;" mat-button (click)="stepper.reset()">Reset</button>
+                </div>
+            </div>
+        </mat-step>
+    </mat-stepper>
+</div>

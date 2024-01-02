@@ -1,0 +1,46 @@
+mat-card{
+    width: 600px;
+    height: 530px;
+    text-align: center;
+    background-color: rgb(43, 71, 124);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+mat-form-field,mat-hint,mat-radio-group,mat-radio-button{
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+mat-form-field{
+    width: 90%;  
+    height: 75px;  
+}
+
+mat-label{
+    font-size:15px;
+}
+
+#form{
+    display: block;
+    align-items: center;
+}
+
+h2{
+    padding: 5px;    
+    color: rgb(252, 250, 162);
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: italic;
+    text-decoration: underline;
+    font-weight: bolder;
+    font-size: large;
+}
+
+button{
+    box-shadow: 0px 0px 5px 0px rgb(6, 47, 61);
+    border-radius: 20px;
+    font-family:'Times New Roman', Times, serif;
+    font-style: italic;
+    border:2px solid black;
+    box-shadow: 0px 0px 2px 1px moccasin;   
+}

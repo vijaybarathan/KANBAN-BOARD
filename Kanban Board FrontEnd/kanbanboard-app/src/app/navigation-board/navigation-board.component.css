@@ -1,0 +1,50 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+.mat-toolbar{
+  color: white;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.mat-toolbar{
+  display: flex;
+  justify-content: space-between;
+}
+.mat-sidenav.sidenav {
+  background-color: darkslateblue;
+  box-shadow: 0px 0px 5px 2px #005daf;  
+}
+
+hr {
+  width: 170px;
+  height: 5px;
+  border-radius: 10px;
+  background-color: rgb(252, 250, 162);
+}
+
+.custom-list-item {
+  color: white;
+  cursor: pointer; 
+  display: block;
+  padding: 8px; 
+  margin-left: 10px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+  font-size: 17px;
+}
+
+.custom-list-item:hover {
+  text-decoration:underline; 
+}

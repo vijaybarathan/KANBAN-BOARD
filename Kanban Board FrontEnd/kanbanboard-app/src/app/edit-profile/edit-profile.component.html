@@ -1,0 +1,37 @@
+<body>
+    <div>
+        <app-navigation-home></app-navigation-home>
+    </div>
+    <div id="profileform">
+        <form [formGroup]="editForm">
+            <mat-form-field>
+                <mat-label>User Name</mat-label>
+                <input matInput formControlName="userName" placeholder="Enter User Name">
+                <mat-icon matSuffix>badge</mat-icon>
+                <mat-error *ngIf="editForm.get('userName')?.errors?.['required']">
+                    Name is required
+                </mat-error>
+                <mat-error *ngIf="editForm.get('userName')?.errors?.['pattern']">
+                    name is not valid
+                </mat-error>
+            </mat-form-field>            
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" placeholder="Enter password">
+                <mat-icon matSuffix>key</mat-icon>
+                <mat-error *ngIf="editForm.get('password')?.errors?.['required']">
+                    Password is required
+                </mat-error>
+                <mat-error *ngIf="editForm.get('password')?.errors?.['pattern']">
+                    Password must contain minimum 8 characters with atleast 1 capital letter alphabet, 1 special
+                    character and 1 number.
+                </mat-error>
+            </mat-form-field> 
+            <div id="buttons">
+                <button id="button1" mat-raised-button color="primary" (click)="goToHome()">Go Home</button>
+                <button id="button2" mat-raised-button color="primary" [disabled]="!editForm.valid" (click)="updateProfile()">Update Profile</button>
+            </div>            
+        </form>
+    </div>
+</body>
+

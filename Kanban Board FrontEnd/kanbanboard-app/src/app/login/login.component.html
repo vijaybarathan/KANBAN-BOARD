@@ -1,0 +1,44 @@
+<div>
+    <app-navigation></app-navigation>
+</div>
+<div class="boxbig">
+    <mat-card class="box">
+        <form [formGroup]="loginForm" (ngSubmit)="handleLogin()">
+            <h2>Login To View Your Boards</h2>
+
+            <mat-form-field class="widthbox" appearance="fill">
+                <mat-label>Email-Id </mat-label>
+                <input matInput type="email" placeholder="Enter Email Id" formControlName="email">
+                <mat-error *ngIf="loginForm.get('email')?.errors?.['required']">
+                    Email is required
+                </mat-error>
+            </mat-form-field>
+
+            <!-- Input field for Password -->
+            <mat-form-field class="widthbox" appearance="fill">
+                <mat-label>Password </mat-label>
+                <input matInput [type]="showPassword ? 'text' : 'password'" placeholder="Enter Password"
+                    formControlName="password">
+
+                <!-- Toggle password visibility button -->
+                <a id="eye" matSuffix mat-icon-button (click)="togglePasswordVisibility()">
+                    <mat-icon id="password">{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </a>
+                <mat-error *ngIf="loginForm.get('password')?.errors?.['required']">
+                    Password is required
+                </mat-error>
+            </mat-form-field>
+
+            <!-- Error message for invalid login -->
+            <div class="ermsg" *ngIf="errMessage">
+                Invalid Email-Id or Password
+            </div>
+
+            <!-- Login button -->
+            <div id="button">
+                <button color="primary" [disabled]="!loginForm.valid" mat-raised-button type="submit">Sign In</button>
+            </div>
+            <p id="hype">Not Registered yet? <a href="/register">Click here</a></p>            
+        </form>
+    </mat-card>
+</div>

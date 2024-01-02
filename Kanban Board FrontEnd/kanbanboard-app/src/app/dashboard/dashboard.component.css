@@ -1,0 +1,97 @@
+#layout {
+    position: relative;
+    height: 140%;
+}
+
+#layout::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../../assets/OrgCoral_Ofc-02_Concept-08.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(60%) contrast(80%);
+    z-index: -1;
+}
+
+#delete{
+    display: flex;
+    justify-content: space-between;
+}
+
+#boardName{
+    cursor: pointer;
+}
+
+#div{
+    width: 700px;
+    height: auto;
+    position: relative;
+    left:  5%;
+    top: 10%;
+    border: 3px;
+    border-radius: 10px;
+    border:2px solid black;
+    box-shadow: 0px 0px 3px 2px moccasin; 
+    padding-bottom: 2px;
+}
+
+#button{
+    position:absolute;
+    margin-left: 72%;
+    top: 160px;
+}
+
+#button>button{
+    width: 200px;
+    height: 40px;
+    font-size: 16px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color:moccasin;
+    font-weight: bolder;
+    color: darkslateblue;   
+    box-shadow: 0px 0px 3px 2px moccasin; 
+    border:2px solid black;    
+}
+
+mat-card-header{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    font-size:large;
+}
+
+#subtitle1{
+    padding-left: 20px;
+    padding-right: 3px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: larger;
+}
+
+#subtitle2{
+    padding-right: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight:600;
+}
+
+#sub{
+    display: flex;
+    justify-content: space-between;
+}
+
+mat-card{
+    margin: 15px;
+    padding: 15px;
+    background-color:moccasin;
+    color: darkslateblue;
+    border:2px solid black;
+}
+
+h2{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: italic;
+    color: white;
+    padding-top: 5px;
+}
